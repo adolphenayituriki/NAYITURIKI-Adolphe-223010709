@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Adolphe HOPE Hotel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            min-height: 50vh;
+            background: linear-gradient(rgba(26, 26, 46, 0.3), rgba(26, 26, 46, 0.3)), url('../images/bg-image.jfif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 24px 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        .hero-content h1 span {
+            color: #2563eb;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: #4b5563;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid #2563eb;
+            border-radius: 15px;
+            z-index: 1;
+        }
+
+        .about-content h3 {
+            font-size: 32px;
+            color: #2563eb;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-content h3 i {
+            color: #2563eb;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+
+        .highlight-box h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+        }
+
+        .values-section {
+            background: #f9fafb;
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #6b7280;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: #2563eb;
+            box-shadow: 0 20px 40px rgba(37,99,235,0.15);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .value-icon i {
+            font-size: 32px;
+            color: white;
+        }
+
+        .value-card h4 {
+            font-size: 20px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            color: #6b7280;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .location-section {
+            padding: 80px 0;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .location-info {
+            padding: 40px;
+            background: #2563eb;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .location-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .location-info p {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        .location-item i {
+            font-size: 20px;
+        }
+
+        .location-item span {
+            font-size: 16px;
+        }
+
+        .location-map {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #e5e7eb;
+        }
+
+        .location-map i {
+            font-size: 60px;
+            color: #2563eb;
+        }
+
+        @media (max-width: 968px) {
+            .about-grid, .location-content, .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            
+            .value-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">👤</div>
+                Adolphe<span>HOPE</span>
+            </a>
+            
+            <div class="nav-wrapper">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html" class="active">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="order.html">Order</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-account">
+                    <button class="user-btn" id="accountBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <span>Account</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="#" onclick="openAuthModal('login')">Login</a>
+                        <a href="#" onclick="openAuthModal('signup')">Sign Up</a>
+                        <a href="../php/admin.php">My Account</a>
+                    </div>
+                </div>
+
+                <div class="lang-switcher">
+                    <button class="lang-btn">
+                        <span>🌐</span>
+                        <span class="current-lang">EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="lang-dropdown">
+                        <a href="?lang=en" data-lang="en" class="active">English</a>
+                        <a href="?lang=rw" data-lang="rw">Kinyarwanda</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span></span> About Adolphe HOPE Hotel
+            </div>
+            <h1>Discover Our <span>Fine Relax Place</span> Story</h1>
+            <p>Experience warm Rwandan hospitality and unforgettable moments at our beautiful hotel in Huye District.</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">View Menu</a>
+                <a href="order.html" class="btn btn-secondary">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800" alt="Adolphe HOPE Hotel">
+                </div>
+                <div class="about-content">
+                    <h3><i class="fas fa-glass-cheers"></i> Welcome to Adolphe HOPE Hotel</h3>
+                    <p>Experience Fine Relax Place and comfort at Adolphe HOPE Hotel. We're committed to providing guests with unforgettable experiences through exceptional service, exquisite dining, and warm Rwandan hospitality.</p>
+                    <p>Our hotel features elegantly designed rooms, world-class amenities, and a restaurant serving the finest dishes prepared by our talented chefs.</p>
+                    <p>Whether you're here for business or leisure, our dedicated team ensures every moment spent with us is special.</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-map-marker-alt"></i> Find Us</h4>
+                        <p>Huye District, Next to International Football Stadium, Rwanda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Us</h2>
+                <p>Experience the finest hospitality in Rwanda</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>Fine Dining</h4>
+                    <p>Our restaurant serves delicious local and international cuisines prepared by experienced chefs.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h4>Comfortable Rooms</h4>
+                    <p>Well-furnished rooms with modern amenities to ensure a relaxing stay.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>24/7 Service</h4>
+                    <p>Our dedicated staff is available around the clock to assist you with any needs.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h4>Easy Access</h4>
+                    <p>Located next to the International Football Stadium, easily accessible from main roads.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h4>Free WiFi</h4>
+                    <p>High-speed internet access available throughout the hotel premises.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h4>Friendly Staff</h4>
+                    <p>Our warm and professional team ensures you feel at home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="section location-section">
+        <div class="container">
+            <div class="location-content">
+                <div class="location-info">
+                    <h3><i class="fas fa-map-marked-alt"></i> Visit Us</h3>
+                    <p>We are conveniently located in Huye District, next to the International Football Stadium - a prime location in Rwanda.</p>
+                    
+                    <div class="location-details">
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Huye District, Next to International Football Stadium, Rwanda</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+250 728 390 015</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>www.nayituriki.com@gmail.com</span>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-globe"></i>
+                            <span>www.nayituriki.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-map">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo" style="color: white;">
+                        <div class="logo-icon" style="background-color: wheat;">👤</div>
+                        Adolphe<span>HOPE</span>
+                    </a>
+                    <p>Your destination for Fine Relax Place accommodation and fine dining experiences in the heart of Rwanda.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="order.html">Order Food</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="../php/login.php">Admin Login</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <p>Huye District, Next to International Football Stadium, Rwanda</p>
+                    <p>+250 728 390 015</p>
+                    <p>www.nayituriki.com@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Adolphe HOPE Hotel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeAuthModal()">×</button>
+            
+            <div class="auth-header">
+                <div class="auth-logo"><span>👤</span></div>
+                <h2>Adolphe HOPE Hotel</h2>
+                <p class="auth-subtitle">Welcome back! Please login or create an account.</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Login</button>
+                <button class="auth-tab" id="signupTab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <form id="loginForm" method="POST" action="../php/login.php">
+                <div class="auth-instruction">
+                    <i class="fas fa-sign-in-alt"></i> Enter your credentials to access your account
+                </div>
+                <div class="form-group"><label><i class="fas fa-envelope"></i> Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+                <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" name="password" placeholder="Enter your password" required></div>
+                <button type="submit" class="btn btn-primary" style="width:100%"><i class="fas fa-sign-in-alt"></i> Login</button>
+            </form>
+            
+            <form id="signupForm" method="POST" action="../php/login.php" style="display:none">
+                <div class="auth-instruction">
+                    <i class="fas fa-user-plus"></i> Create an account to order food and book rooms
+                </div>
+                <div class="form-group"><label><i class="fas fa-user"></i> Full Name</label><input type="text" name="full_name" placeholder="Your full name" required></div>
+                <div class="form-group"><label><i class="fas fa-envelope"></i> Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+                <div class="form-group"><label><i class="fas fa-phone"></i> Phone</label><input type="tel" name="phone" placeholder="+250 XXX XXX XXX" required></div>
+                <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" name="password" placeholder="Create a password" required></div>
+                <button type="submit" class="btn btn-primary" style="width:100%"><i class="fas fa-user-plus"></i> Create Account</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p><i class="fas fa-phone-alt"></i> Need help? Call: +250 728 390 015</p>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .auth-header {text-align:center;margin-bottom:24px;}
+        .auth-header .auth-logo {width:64px;height:64px;background:linear-gradient(135deg,#2563eb,#1d4ed8);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:white;}
+        .auth-header h2 {color:#1a1a2e;font-size:22px;margin-bottom:4px;}
+        .auth-header .auth-subtitle {color:#6b7280;font-size:14px;margin:0;}
+        .auth-instruction {background:#f3f4f6;padding:12px;border-radius:8px;margin-bottom:16px;font-size:13px;color:#4b5563;display:flex;align-items:center;justify-content:center;gap:8px;}
+        .auth-instruction i {color:#2563eb;}
+        .auth-form .form-group label i {margin-right:6px;color:#2563eb;}
+        .auth-form .btn i {margin-right:6px;}
+        .auth-footer {text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb;}
+        .auth-footer p {margin:0;font-size:13px;color:#6b7280;}
+        .auth-footer i {color:#2563eb;margin-right:4px;}
+    </style>
+    
+    <script>
+    function openAuthModal(t){document.getElementById('authModal').classList.add('active');switchAuthTab(t);}
+    function closeAuthModal(){document.getElementById('authModal').classList.remove('active');document.getElementById('loginForm').reset();document.getElementById('signupForm').reset();}
+    function switchAuthTab(t){document.getElementById('loginForm').style.display=t==='signup'?'none':'block';document.getElementById('signupForm').style.display=t==='signup'?'block':'none';document.getElementById('loginTab').classList.toggle('active',t==='login');document.getElementById('signupTab').classList.toggle('active',t==='signup');}
+    document.getElementById('authModal').addEventListener('click',function(e){if(e.target===this)closeAuthModal();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAuthModal();});
+    </script>
+</body>
+</html>

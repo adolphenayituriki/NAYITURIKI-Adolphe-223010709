@@ -1,0 +1,75 @@
+/* Remove default browser margins */
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Top Navigation Bar (formerly .blue-header) */
+.top-navbar {
+    background-color: #0021f5; /* Pure blue */
+    padding: 5px 10px;
+    padding-top: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.top-navbar input {
+    width: 150px;
+}
+
+.top-navbar button {
+    border-radius: 5px;
+    border: none;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Layout container (remains functional) */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Navigation Sidebar (formerly .yellow-sidebar) */
+.nav-sidebar {
+    background-color: #fffd54; /* Pure yellow */
+    width: 400px;
+    padding: 20px;
+}
+
+.nav-sidebar ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.nav-sidebar li {
+    margin-bottom: 5px;
+    text-decoration: underline;
+    color: #604182;
+    cursor: pointer;
+}
+
+/* Main Display Area (formerly .white-content) */
+.primary-display {
+    flex-grow: 1;
+    padding: 10px 20px;
+}
+
+.primary-display h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Image styling */
+.featured-img {
+    width: 300px; 
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Typography */
+.article-text p {
+    line-height: 1.5;
+    text-align: justify;
+}

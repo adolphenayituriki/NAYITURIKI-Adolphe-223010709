@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="converter-card">
+        <h1>Currency Converter</h1>
+        <div class="form-group">
+            <label for="amount">Enter Amount in FRW</label>
+            <input type="number" id="amount" placeholder="Enter amount" step="any">
+        </div>
+        <div class="form-group">
+            <label for="currency">Select Currency</label>
+            <select id="currency">
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="KES">KES - Kenyan Shilling</option>
+                <option value="UGX">UGX - Ugandan Shilling</option>
+                <option value="TZS">TZS - Tanzanian Shilling</option>
+                <option value="ZAR">ZAR - South African Rand</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="INR">INR - Indian Rupee</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="rate">Rate</label>
+            <input type="number" id="rate" step="any">
+        </div>
+        <button id="convertBtn" type="button">CONVERT</button>
+        <div class="result-group">
+            <label class="resultLabel" id="resultLabel" style="color: white;">Result here....</label>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

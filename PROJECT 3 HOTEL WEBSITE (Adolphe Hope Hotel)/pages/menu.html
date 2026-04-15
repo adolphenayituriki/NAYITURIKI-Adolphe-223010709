@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Adolphe HOPE Hotel</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">👤</div>
+                Adolphe<span>HOPE</span>
+            </a>
+            
+            <div class="nav-wrapper">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html" class="active">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="order.html">Order</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-account">
+                    <button class="user-btn" id="accountBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <span>Account</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="#" onclick="openAuthModal('login')">Login</a>
+                        <a href="#" onclick="openAuthModal('signup')">Sign Up</a>
+                        <a href="../php/admin.php">My Account</a>
+                    </div>
+                </div>
+
+                <div class="lang-switcher">
+                    <button class="lang-btn">
+                        <span>🌐</span>
+                        <span class="current-lang">EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="lang-dropdown">
+                        <a href="?lang=en" data-lang="en" class="active">English</a>
+                        <a href="?lang=rw" data-lang="rw">Kinyarwanda</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero-content">
+            <h1>Our <span>Menu</span></h1>
+            <p>Exquisite Dishes & Beverages</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Menu</h2>
+                <p class="section-subtitle">Click on any item to place your order</p>
+            </div>
+            
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Item Name</th>
+                        <th>Description</th>
+                        <th>Price (USD)</th>
+                        <th>Price (FRW)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fish Dishes -->
+                    <tr onclick="window.location.href='order.html?item=Grilled Salmon'">
+                        <td class="category">🐟 Fish</td>
+                        <td class="item-name">Grilled Salmon</td>
+                        <td class="description">Fresh Atlantic salmon with herbs and lemon butter sauce</td>
+                        <td class="price">$28.99</td>
+                        <td class="price">37,687 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Pan-Fried Sea Bass'">
+                        <td class="category">🐟 Fish</td>
+                        <td class="item-name">Pan-Fried Sea Bass</td>
+                        <td class="description">Crispy sea bass with Mediterranean vegetables</td>
+                        <td class="price">$32.99</td>
+                        <td class="price">42,887 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Fish & Chips'">
+                        <td class="category">🐟 Fish</td>
+                        <td class="item-name">Fish & Chips</td>
+                        <td class="description">Beer-battered cod with crispy fries and tartar sauce</td>
+                        <td class="price">$22.99</td>
+                        <td class="price">29,887 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Shrimp Scampi'">
+                        <td class="category">🐟 Fish</td>
+                        <td class="item-name">Shrimp Scampi</td>
+                        <td class="description">Succulent shrimp in garlic white wine sauce</td>
+                        <td class="price">$26.99</td>
+                        <td class="price">35,087 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Lobster Thermidor'">
+                        <td class="category">🐟 Fish</td>
+                        <td class="item-name">Lobster Thermidor</td>
+                        <td class="description">Premium lobster with creamy cognac sauce</td>
+                        <td class="price">$45.99</td>
+                        <td class="price">59,787 FRW</td>
+                    </tr>
+                    
+                    <!-- Main Courses -->
+                    <tr onclick="window.location.href='order.html?item=Beef Wellington'">
+                        <td class="category">🍖 Main</td>
+                        <td class="item-name">Beef Wellington</td>
+                        <td class="description">Tender beef wrapped in puff pastry with duxelles</td>
+                        <td class="price">$38.99</td>
+                        <td class="price">50,687 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Grilled Ribeye Steak'">
+                        <td class="category">🍖 Main</td>
+                        <td class="item-name">Grilled Ribeye Steak</td>
+                        <td class="description">12oz prime ribeye with peppercorn sauce</td>
+                        <td class="price">$34.99</td>
+                        <td class="price">45,487 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Roast Chicken'">
+                        <td class="category">🍖 Main</td>
+                        <td class="item-name">Roast Chicken</td>
+                        <td class="description">Farm-raised chicken with herbs and vegetables</td>
+                        <td class="price">$24.99</td>
+                        <td class="price">32,487 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Lamb Chops'">
+                        <td class="category">🍖 Main</td>
+                        <td class="item-name">Lamb Chops</td>
+                        <td class="description">New Zealand lamb with mint jus</td>
+                        <td class="price">$36.99</td>
+                        <td class="price">48,087 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Vegetable Stroganoff'">
+                        <td class="category">🍖 Main</td>
+                        <td class="item-name">Vegetable Stroganoff</td>
+                        <td class="description">Fresh seasonal vegetables in creamy sauce</td>
+                        <td class="price">$19.99</td>
+                        <td class="price">25,987 FRW</td>
+                    </tr>
+                    
+                    <!-- Drinks -->
+                    <tr onclick="window.location.href='order.html?item=House Red Wine'">
+                        <td class="category">🍷 Drink</td>
+                        <td class="item-name">House Red Wine</td>
+                        <td class="description">Glass of premium Cabernet Sauvignon</td>
+                        <td class="price">$12.99</td>
+                        <td class="price">16,887 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=House White Wine'">
+                        <td class="category">🍷 Drink</td>
+                        <td class="item-name">House White Wine</td>
+                        <td class="description">Glass of crisp Chardonnay</td>
+                        <td class="price">$12.99</td>
+                        <td class="price">16,887 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Champagne'">
+                        <td class="category">🍷 Drink</td>
+                        <td class="item-name">Champagne</td>
+                        <td class="description">Glass of French Champagne</td>
+                        <td class="price">$18.99</td>
+                        <td class="price">24,687 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Classic Mojito'">
+                        <td class="category">🍷 Drink</td>
+                        <td class="item-name">Classic Mojito</td>
+                        <td class="description">Fresh mint, lime, rum and soda</td>
+                        <td class="price">$14.99</td>
+                        <td class="price">19,487 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Margarita'">
+                        <td class="category">🍷 Drink</td>
+                        <td class="item-name">Margarita</td>
+                        <td class="description">Tequila, lime and triple sec</td>
+                        <td class="price">$13.99</td>
+                        <td class="price">18,187 FRW</td>
+                    </tr>
+                    
+                    <!-- Fresh Juices -->
+                    <tr onclick="window.location.href='order.html?item=Fresh Orange Juice'">
+                        <td class="category">🧃 Juice</td>
+                        <td class="item-name">Fresh Orange Juice</td>
+                        <td class="description">Freshly squeezed oranges</td>
+                        <td class="price">$6.99</td>
+                        <td class="price">9,087 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Apple Juice'">
+                        <td class="category">🧃 Juice</td>
+                        <td class="item-name">Apple Juice</td>
+                        <td class="description">Fresh apple cider</td>
+                        <td class="price">$6.99</td>
+                        <td class="price">9,087 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Mango Juice'">
+                        <td class="category">🧃 Juice</td>
+                        <td class="item-name">Mango Juice</td>
+                        <td class="description">Sweet tropical mango</td>
+                        <td class="price">$7.99</td>
+                        <td class="price">10,387 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Pineapple Juice'">
+                        <td class="category">🧃 Juice</td>
+                        <td class="item-name">Pineapple Juice</td>
+                        <td class="description">Refreshing pineapple</td>
+                        <td class="price">$7.99</td>
+                        <td class="price">10,387 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Mixed Berry Smoothie'">
+                        <td class="category">🧃 Juice</td>
+                        <td class="item-name">Mixed Berry Smoothie</td>
+                        <td class="description">Strawberries, blueberries, raspberries</td>
+                        <td class="price">$8.99</td>
+                        <td class="price">11,687 FRW</td>
+                    </tr>
+                    
+                    <!-- Desserts -->
+                    <tr onclick="window.location.href='order.html?item=Chocolate Lava Cake'">
+                        <td class="category">🍰 Dessert</td>
+                        <td class="item-name">Chocolate Lava Cake</td>
+                        <td class="description">Warm chocolate cake with molten center</td>
+                        <td class="price">$12.99</td>
+                        <td class="price">16,887 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Crème Brûlée'">
+                        <td class="category">🍰 Dessert</td>
+                        <td class="item-name">Crème Brûlée</td>
+                        <td class="description">Classic vanilla custard with caramelized top</td>
+                        <td class="price">$10.99</td>
+                        <td class="price">14,287 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Tiramisu'">
+                        <td class="category">🍰 Dessert</td>
+                        <td class="item-name">Tiramisu</td>
+                        <td class="description">Italian coffee-flavored dessert</td>
+                        <td class="price">$11.99</td>
+                        <td class="price">15,587 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Cheesecake'">
+                        <td class="category">🍰 Dessert</td>
+                        <td class="item-name">Cheesecake</td>
+                        <td class="description">New York style with strawberry topping</td>
+                        <td class="price">$9.99</td>
+                        <td class="price">12,987 FRW</td>
+                    </tr>
+                    <tr onclick="window.location.href='order.html?item=Apple Pie'">
+                        <td class="category">🍰 Dessert</td>
+                        <td class="item-name">Apple Pie</td>
+                        <td class="description">Warm pie with vanilla ice cream</td>
+                        <td class="price">$8.99</td>
+                        <td class="price">11,687 FRW</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="order.html" class="btn btn-primary">Place Your Order</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo" style="color: white;">
+                        <div class="logo-icon" style="background-color: wheat;">👤</div>
+                        Adolphe<span>HOPE</span>
+                    </a>
+                    <p>Your destination for Fine Relax Place accommodation and fine dining experiences in the heart of Rwanda.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="order.html">Order Food</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="../php/login.php">Admin Login</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <p>Huye District, Next to International Football Stadium, Rwanda</p>
+                    <p>+250 728 390 015</p>
+                    <p>www.nayituriki.com@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Adolphe HOPE Hotel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            
+            <div class="auth-header">
+                <div class="auth-logo"><span>👤</span></div>
+                <h2>Adolphe HOPE Hotel</h2>
+                <p class="auth-subtitle">Welcome back! Please login or create an account.</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Login</button>
+                <button class="auth-tab" id="signupTab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <form id="loginForm" method="POST" action="../php/login.php">
+                <div class="auth-instruction">
+                    <i class="fas fa-sign-in-alt"></i> Enter your credentials to access your account
+                </div>
+                <div class="form-group">
+                    <label for="login_email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="login_email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login_password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="login_password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <form id="signupForm" method="POST" action="../php/login.php" style="display: none;">
+                <div class="auth-instruction">
+                    <i class="fas fa-user-plus"></i> Create an account to order food and book rooms
+                </div>
+                <div class="form-group">
+                    <label for="signup_name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="signup_name" name="full_name" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup_email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="signup_email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup_phone"><i class="fas fa-phone"></i> Phone</label>
+                    <input type="tel" id="signup_phone" name="phone" placeholder="+250 XXX XXX XXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup_password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="signup_password" name="password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                <p><i class="fas fa-phone-alt"></i> Need help? Call: +250 728 390 015</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .auth-header {text-align:center;margin-bottom:24px;}
+        .auth-header .auth-logo {width:64px;height:64px;background:linear-gradient(135deg,#2563eb,#1d4ed8);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:white;}
+        .auth-header h2 {color:#1a1a2e;font-size:22px;margin-bottom:4px;}
+        .auth-header .auth-subtitle {color:#6b7280;font-size:14px;margin:0;}
+        .auth-instruction {background:#f3f4f6;padding:12px;border-radius:8px;margin-bottom:16px;font-size:13px;color:#4b5563;display:flex;align-items:center;justify-content:center;gap:8px;}
+        .auth-instruction i {color:#2563eb;}
+        .auth-form .form-group label i {margin-right:6px;color:#2563eb;}
+        .auth-form .btn i {margin-right:6px;}
+        .auth-footer {text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb;}
+        .auth-footer p {margin:0;font-size:13px;color:#6b7280;}
+        .auth-footer i {color:#2563eb;margin-right:4px;}
+    </style>
+
+    <script>
+        function openAuthModal(tab) {
+            document.getElementById('authModal').classList.add('active');
+            switchAuthTab(tab);
+        }
+        
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+            document.getElementById('loginForm').reset();
+            document.getElementById('signupForm').reset();
+        }
+        
+        function switchAuthTab(tab) {
+            if (tab === 'signup') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('signupForm').style.display = 'block';
+                document.getElementById('signupTab').classList.add('active');
+                document.getElementById('loginTab').classList.remove('active');
+            } else {
+                document.getElementById('signupForm').style.display = 'none';
+                document.getElementById('loginForm').style.display = 'block';
+                document.getElementById('loginTab').classList.add('active');
+                document.getElementById('signupTab').classList.remove('active');
+            }
+        }
+        
+        document.getElementById('authModal').addEventListener('click', function(e) {
+            if (e.target === this) closeAuthModal();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeAuthModal();
+        });
+    </script>
+</body>
+</html>

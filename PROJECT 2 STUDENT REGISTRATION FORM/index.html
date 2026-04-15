@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 15px;
+        }
+
+        .form-group.qualifications-group {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .form-group.qualifications-group label {
+            width: 150px;
+            flex-shrink: 0;
+            margin: 0;
+            padding-top: 6px;
+        }
+
+        .form-group.qualifications-group .table-wrapper {
+            flex: 1;
+            overflow-x: auto;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.85rem;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #999;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .date-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .date-group select {
+            width: 100px;
+        }
+
+        .gender-group,
+        .hobby-group,
+        .course-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .gender-group label,
+        .hobby-group label,
+        .course-group label {
+            font-weight: normal;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding-right: 0;
+            text-transform: none;
+        }
+
+        #otherHobby {
+            width: 150px;
+            margin-left: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            max-width: 500px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: none;
+        }
+
+        th {
+            background: transparent;
+            color: #333;
+            font-weight: 600;
+        }
+
+        td input {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            grid-column: 1 / -1;
+        }
+
+        button {
+            padding: 8px 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background: #333;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background: #555;
+        }
+
+        button[type="reset"] {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        button[type="reset"]:hover {
+            background: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+
+            label {
+                text-align: left;
+                padding-right: 0;
+            }
+
+            .date-group {
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration Form</h1>
+        <form action="connect.php" method="POST">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
+
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth</label>
+                <div class="date-group">
+                    <select name="dayOfBirth" id="dayOfBirth" required>
+                        <option value="">Day</option>
+                        <?php for($i = 1; $i <= 31; $i++): ?>
+                            <option value="<?php echo sprintf('%02d', $i); ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                    <select name="monthOfBirth" id="monthOfBirth" required>
+                        <option value="">Month</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select name="yearOfBirth" id="yearOfBirth" required>
+                        <option value="">Year</option>
+                        <?php for($i = date('Y'); $i >= 1900; $i--): ?>
+                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="emailID">Email ID</label>
+                <input type="email" id="emailID" name="emailID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="gender-group">
+                    <label><input type="radio" id="gender_male" name="gender" value="male"> Male</label>
+                    <label><input type="radio" id="gender_female" name="gender" value="female"> Female</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea name="address" id="address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city">
+            </div>
+
+            <div class="form-group">
+                <label for="pinCode">Pin Code</label>
+                <input type="text" id="pinCode" name="pinCode">
+            </div>
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="Afghanistan">Afghanistan</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Canada">Canada</option>
+                    <option value="China">China</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="India">India</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Nepal">Nepal</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Sri Lanka">Sri Lanka</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="United States">United States</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hobbies">Hobbies</label>
+                <div class="hobby-group">
+                    <label><input type="checkbox" id="hobby1" name="hobbies[]" value="Drawing"> Drawing</label>
+                    <label><input type="checkbox" id="hobby2" name="hobbies[]" value="Singing"> Singing</label>
+                    <label><input type="checkbox" id="hobby3" name="hobbies[]" value="Dancing"> Dancing</label>
+                    <label><input type="checkbox" id="hobby4" name="hobbies[]" value="Sketching"> Sketching</label>
+                    <label><input type="checkbox" id="hobby5" name="hobbies[]" value="Others" onclick="toggleOtherInput()"> Others</label>
+                    <input type="text" id="otherHobby" name="otherHobby" placeholder="Specify other" style="display: none;">
+                </div>
+            </div>
+
+            <div class="form-group qualifications-group">
+                <label for="qualifications">Qualifications</label>
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th>SI.No.</th>
+                            <th>Examination</th>
+                            <th>Board</th>
+                            <th>Percentage</th>
+                            <th>Year of Passing</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><strong>Class X</strong></td>
+                            <td><input type="text" name="board1"></td>
+                            <td><input type="text" name="percentage1"></td>
+                            <td><input type="text" name="yearOfPassing1"></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong>Class XII</strong></td>
+                            <td><input type="text" name="board2"></td>
+                            <td><input type="text" name="percentage2"></td>
+                            <td><input type="text" name="yearOfPassing2"></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><strong>Graduation</strong></td>
+                            <td><input type="text" name="board3"></td>
+                            <td><input type="text" name="percentage3"></td>
+                            <td><input type="text" name="yearOfPassing3"></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><strong>Masters</strong></td>
+                            <td><input type="text" name="board4"></td>
+                            <td><input type="text" name="percentage4"></td>
+                            <td><input type="text" name="yearOfPassing4"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="coursesAppliedFor">Courses Applied For</label>
+                <div class="course-group">
+                    <label><input type="checkbox" id="bca" name="coursesAppliedFor[]" value="BCA"> BCA</label>
+                    <label><input type="checkbox" id="bcom" name="coursesAppliedFor[]" value="B.Com"> B.Com</label>
+                    <label><input type="checkbox" id="bsc" name="coursesAppliedFor[]" value="B.Sc"> B.Sc</label>
+                    <label><input type="checkbox" id="ba" name="coursesAppliedFor[]" value="B.A"> B.A</label>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleOtherInput() {
+            var checkbox = document.getElementById('hobby5');
+            var otherInput = document.getElementById('otherHobby');
+            if (checkbox.checked) {
+                otherInput.style.display = 'inline-block';
+            } else {
+                otherInput.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
